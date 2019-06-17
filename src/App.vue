@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <Nav id="nav"></Nav>
+    <Nav id="nav" ></Nav>
+    
     <router-view/>
   </div>
 
@@ -8,6 +9,8 @@
 
 <script>
 import Nav from './components/Nav.vue'
+import axios from 'axios'
+import gWeb from'./js/gWeb'
 
 export default {
   name: 'app',
