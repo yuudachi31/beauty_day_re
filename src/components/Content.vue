@@ -61,10 +61,10 @@
               <img src="../img/rainy.png" alt>
             </div>
         </router-link>
-        <router-link to="/north" class="area area2">
-            <div class="title">北部</div>
+        <router-link to="/south" class="area area2">
+            <div class="title">南部</div>
             <div class="ur">
-              <div class="city">台北市</div>
+              <div class="city">高雄市</div>
               <div class="temp">29°C</div>
               <div class="wea">多雲時陰</div>
             </div>
@@ -72,10 +72,10 @@
               <img src="../img/rainy.png" alt>
             </div>
         </router-link>
-        <router-link to="/north" class="area area3">
-            <div class="title">北部</div>
+        <router-link to="/medium" class="area area3">
+            <div class="title">中部</div>
             <div class="ur">
-              <div class="city">台北市</div>
+              <div class="city">台中市</div>
               <div class="temp">29°C</div>
               <div class="wea">多雲時陰</div>
             </div>
@@ -83,10 +83,10 @@
               <img src="../img/rainy.png" alt>
             </div>
         </router-link>
-        <router-link to="/north" class="area area4">
-            <div class="title">北部</div>
+        <router-link to="/east" class="area area4">
+            <div class="title">東部</div>
             <div class="ur">
-              <div class="city">台北市</div>
+              <div class="city">花蓮市</div>
               <div class="temp">29°C</div>
               <div class="wea">多雲時陰</div>
             </div>
