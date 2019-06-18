@@ -1,15 +1,17 @@
 <template>
-  <div class="mforecast">
-    <div class="nr n1">
-      <div class="city">臺中市</div>
-      <div class="icon">
-        <img src="../img/brainy.png" alt>
+  <div class="nforecast">
+    <router-link to="/weekf">
+      <div class="nr n1">
+        <div class="city">台中市</div>
+        <div class="icon">
+          <img src="../img/brainy.png" alt>
+        </div>
+        <div class="wrap">
+          <div class="temp">26°C</div>
+          <div class="wea">下雨</div>
+        </div>
       </div>
-      <div class="wrap">
-        <div class="temp">26°C</div>
-        <div class="wea">下雨</div>
-      </div>
-    </div>
+    </router-link>
     <div class="nr n2">
       <div class="city">苗栗縣</div>
       <div class="icon">
@@ -57,7 +59,7 @@
 </script>
 
 <style lang="scss" scoped>
-.mforecast {
+.nforecast {
   display: grid;
   grid-gap: 30px;
   margin: 35px 10% 30px 10%;
@@ -93,7 +95,7 @@ img {
 }
 
 @media screen and (max-width: 505px) {
-  .mforecast {
+  .nforecast {
     grid-template-columns: 1fr;
   }
   .nr {
@@ -108,6 +110,7 @@ img {
     text-align: right;
   }
   .temp {
+    
     height: 20px;
     letter-spacing: 3px;
     font-size: 18px;

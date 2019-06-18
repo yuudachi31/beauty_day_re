@@ -17,60 +17,60 @@
       <div class="icon">
         <img src="../img/brainy.png" alt>
       </div>
-        <div class="wrap">
-          <div class="temp">26°C</div>
-          <div class="wea">下雨</div>
-        </div>
+      <div class="wrap">
+        <div class="temp">26°C</div>
+        <div class="wea">下雨</div>
+      </div>
     </div>
     <div class="nr n3">
       <div class="city">基隆市</div>
       <div class="icon">
         <img src="../img/brainy.png" alt>
       </div>
-        <div class="wrap">
-          <div class="temp">26°C</div>
-          <div class="wea">下雨</div>
-        </div>
+      <div class="wrap">
+        <div class="temp">26°C</div>
+        <div class="wea">下雨</div>
+      </div>
     </div>
     <div class="nr n4">
       <div class="city">基隆市</div>
       <div class="icon">
         <img src="../img/brainy.png" alt>
       </div>
-        <div class="wrap">
-          <div class="temp">26°C</div>
-          <div class="wea">下雨</div>
-        </div>
+      <div class="wrap">
+        <div class="temp">26°C</div>
+        <div class="wea">下雨</div>
+      </div>
     </div>
     <div class="nr n5">
       <div class="city">基隆市</div>
       <div class="icon">
         <img src="../img/brainy.png" alt>
       </div>
-        <div class="wrap">
-          <div class="temp">26°C</div>
-          <div class="wea">下雨</div>
-        </div>
+      <div class="wrap">
+        <div class="temp">26°C</div>
+        <div class="wea">下雨</div>
+      </div>
     </div>
     <div class="nr n6">
       <div class="city">基隆市</div>
       <div class="icon">
         <img src="../img/brainy.png" alt>
       </div>
-        <div class="wrap">
-          <div class="temp">26°C</div>
-          <div class="wea">下雨</div>
-        </div>
+      <div class="wrap">
+        <div class="temp">26°C</div>
+        <div class="wea">下雨</div>
+      </div>
     </div>
     <div class="nr n7">
       <div class="city">基隆市</div>
       <div class="icon">
         <img src="../img/brainy.png" alt>
       </div>
-        <div class="wrap">
-          <div class="temp">26°C</div>
-          <div class="wea">下雨</div>
-        </div>
+      <div class="wrap">
+        <div class="temp">26°C</div>
+        <div class="wea">下雨</div>
+      </div>
     </div>
   </div>
 </template>
@@ -125,9 +125,9 @@ img {
   .city {
     font-size: 16px;
   }
-  .wrap{
-      margin-left: 20px;
-      text-align: right;
+  .wrap {
+    margin-left: 20px;
+    text-align: right;
   }
   .temp {
     
