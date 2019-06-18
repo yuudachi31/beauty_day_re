@@ -4,19 +4,15 @@
       <div class="clogo">
         <img src="../img/Clogo.png" class="cl">
       </div>
-      <div class="">
-       
-       <input type="text" v-model.trim="email" placeholder="Email"><br>
-        <input type="password" v-model.trim="password" placeholder="Password"><br>
+      <div class="li3">今天 ，  是你的天氣嗎?</div>
+      <div class="text">
         
-        <div class="text">
-        <li class="li1">
-          <div @click="login">登入12</div>
-        </li>
-        <li class="li2">
-          <div @click="signUp">註冊</div>
-        </li>
+        <div class="li1">
+          <div @click="logout" class="btn1" >登出</div>
         </div>
+        <!-- <li class="li2">
+          <a href="/">註冊</a>
+        </li> -->
       </div>
     </div>
     <div class="right">
@@ -106,18 +102,21 @@
 </template>
 
 <script>
-import firebase from 'firebase';
+import  firebase  from 'firebase';
 export default {
-      name: 'content',
+  name: "content_login",
   data() {
     return {
-      email: '',
-      password: '',
       isall: true,
-      ismyall: false
+      ismyall: false,
     };
   },
   methods: {
+      logout: function() {
+            firebase.auth().signOut().then(() =>{
+                this.$router.replace('/')
+            })
+        },
     vif() {
       this.isall = false;
       this.ismyall = true;
@@ -128,33 +127,7 @@ export default {
       this.ismyall = false;
       console.log(this.isall);
       console.log(this.ismyall);
-    },
-    login: function(){        
-                firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
-              (user) => {
-                        
-                        this.$router.replace('content_login');
-                        alert('you have login !')
-                    },
-                     (err) => {
-                         alert('Oop.' + err.message)
-                     }); 
-            // firebase.auth().currentUser可取得目前登入資訊
-
-   //             this.$router.replace('/');
-                
-            },
-            signUp: function(){
-                firebase.auth().createUserWithEmailAndPassword(this.email,this.password).then(
-                     (user) => {
-                        alert('Your account has been created !')
-                        this.$router.replace('about')
-                    },
-                     (err) => {
-                         alert('Oop.' + err.message)
-                     }
-                );
-            }
+    }
   }
 };
 </script>
@@ -170,6 +143,9 @@ $couldy: linear-gradient();
   flex-wrap: nowrap;
   margin: 60px;
   align-items: center;
+}
+a {
+  text-decoration: none;
 }
 .btn1 {
   text-decoration: none;
@@ -206,9 +182,20 @@ $couldy: linear-gradient();
   padding: 8px;
   width: 150px;
   border-radius: 50px;
+  top:0px;
+}
+.li3{
+    font-size: 28px;
+  font-weight: bold;
+  border: solid #000 5px;
+  padding: 8px;
+ text-align: center;
+  border-radius: 50px;
+  top:0px;
 }
 .li1 {
   background-color: #000;
+  margin: auto;
 }
 .li1 div {
   color: #fff;
