@@ -66,6 +66,7 @@
             <div class="weai">
               <div v-if="taipeiW === '多雲'"><img src="../img/scloudy.png" alt></div>
   <div v-else-if="taipeiW === '雨天'"><img src="../img/rainy.png" alt></div>
+  <div v-else-if="taipeiW === '短暫陣雨'"><img src="../img/rainy.png" alt></div>
   <div v-else-if="taipeiW === '陰'"><img src="../img/couldy.png" alt></div>
   <div v-else-if="taipeiW === '晴'"><img src="../img/sunny.png" alt></div>
   <div v-else>沒圖</div>
@@ -82,6 +83,7 @@
             <div class="weai">
               <div v-if="kaohsiungW === '多雲'"><img src="../img/scloudy.png" alt></div>
   <div v-else-if="kaohsiungW === '雨天'"><img src="../img/rainy.png" alt></div>
+  <div v-else-if="kaohsiungW === '短暫陣雨'"><img src="../img/rainy.png" alt></div>
   <div v-else-if="kaohsiungW === '陰'"><img src="../img/couldy.png" alt></div>
   <div v-else-if="kaohsiungW === '晴'"><img src="../img/sunny.png" alt></div>
   <div v-else>沒圖</div>
@@ -98,6 +100,7 @@
             <div class="weai">
               <div v-if="taichungW === '多雲'"><img src="../img/scloudy.png" alt></div>
   <div v-else-if="taichungW === '雨天'"><img src="../img/rainy.png" alt></div>
+   <div v-else-if="taichungW === '短暫陣雨'"><img src="../img/rainy.png" alt></div>
   <div v-else-if="taichungW === '陰'"><img src="../img/couldy.png" alt></div>
   <div v-else-if="taichungW === '晴'"><img src="../img/sunny.png" alt></div>
   <div v-else>沒圖</div>
@@ -114,6 +117,7 @@
             <div class="weai">
               <div v-if="hualienW === '多雲'"><img src="../img/scloudy.png" alt></div>
   <div v-else-if="hualienW === '雨天'"><img src="../img/rainy.png" alt></div>
+  <div v-else-if="hualienW === '短暫陣雨'"><img src="../img/rainy.png" alt></div>
   <div v-else-if="hualienW === '陰'"><img src="../img/couldy.png" alt></div>
   <div v-else-if="hualienW === '晴'"><img src="../img/sunny.png" alt></div>
   <div v-else>沒圖</div>
@@ -266,7 +270,7 @@ $couldy: linear-gradient();
   padding: 8px;
   width: 150px;
   border-radius: 50px;
-  
+  cursor: pointer;
 }
 .li1 {
   background-color: #000;
@@ -304,6 +308,7 @@ $couldy: linear-gradient();
 .myall {
   display: flex;
   width: auto;
+   cursor: pointer;
 }
 .start {
   width: 30px;
