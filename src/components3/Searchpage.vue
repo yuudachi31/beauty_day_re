@@ -1,6 +1,6 @@
 <template>
-  <div class="nforecast">
-    <div class="nr n1">
+<div class="searchp">
+<div class="nr n1">
       <div class="city">臺東縣</div>
       <div class="icon">
         <div v-if="ttW === '多雲'"><img src="../img/c1.png" alt></div>
@@ -10,60 +10,45 @@
   <div v-else-if="ttW === '晴'"><img src="../img/c4.png" alt></div>
   <div v-else>沒圖</div>
       </div>
-      <div class="wrap">
+       <div v-for="news in searching1" v-bind:key="news" >
+           {{news}}
+           
         <div class="temp">{{ttTemp}}°C</div>
+       </div>
         <div class="wea">{{ttW}}</div>
       </div>
     </div>
-    <div class="nr n2">
-      <div class="city">花蓮縣</div>
-      <div class="icon">
-        <div v-if="hualienW === '多雲'"><img src="../img/c1.png" alt></div>
-  <div v-else-if="hualienW === '雨天'"><img src="../img/c2.png" alt></div>
-  <div v-else-if="hualienW === '短暫陣雨'"><img src="../img/c2.png" alt></div>
-  <div v-else-if="hualienW === '陰'"><img src="../img/c3.png" alt></div>
-  <div v-else-if="hualienW === '晴'"><img src="../img/c4.png" alt></div>
-  <div v-else>沒圖</div>
-      </div>
-      <div class="wrap">
-        <div class="temp">{{hualienTemp}}°C</div>
-        <div class="wea">{{hualienW}}</div>
-      </div>
-    </div>
-  </div>
-</template>
 
+
+
+
+</div>
+</template>
+    
 <script>
 import firebase, { functions } from 'firebase';
 import axios from 'axios';
 
 export default {
-  name: 'nfor',
+  name: 'search',
   data(){
     return{
-       hualienWeather:[],
-      hualienTemp:[],
-      hualienW:[],
-      ttWeather:[],
-      ttTemp:[],
-      ttW:[],
-    
-      }
-  },
-  methods: {
+sWeather:[],
+sTemp:[],
+sW:[],
+    }
+ },
+ methods:{
 
-  },
-  async created() {
- let hualienWeather = await axios.get("https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-089?Authorization=CWB-3AFE048E-EC32-4673-99F4-55ED79CF1F70&parameterName=CITY&limit =2&locationName=花蓮縣");
-   this.hualienTemp = hualienWeather.data.records.locations[0].location[0].weatherElement[3].time[1].elementValue[0].value;
-   this.hualienW = hualienWeather.data.records.locations[0].location[0].weatherElement[1].time[1].elementValue[0].value;
-   let ttWeather = await axios.get("https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-089?Authorization=CWB-3AFE048E-EC32-4673-99F4-55ED79CF1F70&parameterName=CITY&limit =2&locationName=臺東縣");    
-    this.ttTemp = ttWeather.data.records.locations[0].location[0].weatherElement[3].time[1].elementValue[0].value;
-    this.ttW = ttWeather.data.records.locations[0].location[0].weatherElement[1].time[1].elementValue[0].value;
-  } 
+ },
+ props:["searching1"],
+ async created() {
+
+ }
+
+
 }
 </script>
-
 <style lang="scss" scoped>
 .nforecast {
   display: grid;

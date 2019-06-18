@@ -1,10 +1,10 @@
 <template>
 <div class="northtitle" name="n">
-    <div class="bt">北部</div>
-    <div class="title ft">中部</div>
-    <div class="title st">南部</div>
-    <div class="title tt">東部</div>
-    <div class="title ft">外島</div>
+    <router-link to="/north" div class="bt">北部</router-link>
+    <router-link to="/medium" div class="title ft">中部</router-link>
+    <router-link to="/south" div class="title st">南部</router-link>
+    <router-link to="/east" div class="title tt">東部</router-link>
+    <router-link to="/outer" div class="title ft">外島</router-link>
 </div>
 </template>
 

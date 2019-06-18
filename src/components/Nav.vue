@@ -7,10 +7,10 @@
         </router-link>
       </div>
       <div class="ni">
-        <input type="search" class="search">
+        <input type="text" v-model.trim="searching1" placeholder="搜尋" class="search">
       </div>
-      <div class="b1">登入</div>
-      <div class="b2">註冊</div>
+      <router-link to="/search" class="b1" :searching1="searching1">搜尋</router-link>
+      
     </div>
     <div class="burger" @click="v = !v">
       <div class="l1"></div>
@@ -20,24 +20,32 @@
     <transition enter-active-class="enter" leave-active-class="leave">
       <div class="content" v-if="v">
         <div class="item1">
-          <input type="search" class="i1">
+          <input type="text" v-model.trim="searching1" placeholder="搜尋" class="search">
         </div>
-        <div class="item2">登入</div>
-        <div class="item3">註冊</div>
+        <router-link  to="/search" :searching1="searching1" class="item2" >搜尋</router-link>
       </div>
     </transition>
   </div>
 </template>
 
 <script>
+
+import axios from 'axios';
 export default {
   name: "nav",
   data() {
     return {
-      v: false
+      v: false,
+      searching1:"",
+     
     };
   },
-  methods: {}
+ 
+  methods: {
+    searching: function(){
+this.sWea
+    }
+  }
 };
 </script>
 
@@ -76,7 +84,9 @@ export default {
   width: 180px;
   height: auto;
 }
-
+input{
+    font-family: 微軟正黑體;
+}
 .search {
   padding-left: 10px;
   outline: 0;
@@ -93,6 +103,7 @@ export default {
   font-size: 18px;
   margin-left: 20px;
   left: 62%;
+  cursor: pointer;
 }
 
 .b2 {

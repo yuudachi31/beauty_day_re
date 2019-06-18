@@ -26,6 +26,7 @@
 
 <style lang="scss" scoped>
 .weekftitle {
+  top: 60px;
   display: flex;
   font-weight: bold;
   margin: 5%;
@@ -77,10 +78,61 @@
   font-size: 45px;
 }
 
-@media screen and (max-width: 1024px) {
-    .weekftitle{
-          margin-top: 80px;
-    }
+@media screen and (max-width: 768px) {
+    .weekftitle {
+    margin-top: 80px;
+  }
+  .first {
+    font-size: 20px;
+    letter-spacing: 8px;
+  }
+  .temp {
+    margin-top: 10px;
+    font-size: 24px;
+  }
+
+  .second {
+    width: 70px;
+    height: auto;
+    margin-left: 5%;
+  }
+  .icon {
+    margin: auto;
+    justify-content: center;
+    width: 40px;
+  }
+  .icon img {
+    width: 100%;
+  }
+  .wea {
+    margin-top: 5px;
+    text-align: center;
+    font-size: 10px;
+  }
+  .third {
+    top: 17px;
+    margin-left: 6%;
+    font-size: 10px;
+  }
+  .plf {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+  .fourth {
+    top: 17px;
+    margin-left: 6%;
+    font-size: 10px;
+  }
+  .rainf {
+    margin-top: 6px;
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .weekftitle {
+    margin-top: 80px;
+  }
   .first {
     font-size: 25px;
     letter-spacing: 8px;

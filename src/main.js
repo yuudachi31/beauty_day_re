@@ -20,7 +20,12 @@ let config = {
 firebase.initializeApp(config);
 
 let app = '';
-
+let cha =function() {
+  
+ if(this.taipeiW = '晴'){
+  return 2;
+}
+}
 firebase.auth().onAuthStateChanged(()=> {
   if(!app) {
     app = new Vue({
