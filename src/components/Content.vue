@@ -11,7 +11,7 @@
         
         <div class="text">
         <li class="li1">
-          <div @click="login">登入12</div>
+          <div @click="login">登入</div>
         </li>
         <li class="li2">
           <div @click="signUp">註冊</div>
@@ -22,11 +22,11 @@
     <div class="right">
       <div class="menu">
         <div class="all" @click="test">全區</div>
-        <div class="myall" @click="vif">
+        <div class="myall" @click="myw">
           <div class="start">
             <img src="../img/mystar.png" alt>
           </div>
-          <div class="my">我的地區</div>
+          <div  class="my">我的地區</div>
         </div>
       </div>
       <div class="forecast2" v-if="ismyall">
@@ -60,44 +60,64 @@
             <div class="title">北部</div>
             <div class="ur">
               <div class="city">台北市</div>
-              <div class="temp">29°C</div>
-              <div class="wea">多雲時陰</div>
+              <div class="temp">{{taipeiTemp}}°C</div>
+              <div class="wea">{{taipeiW}}</div>
             </div>
             <div class="weai">
-              <img src="../img/rainy.png" alt>
+              <div v-if="taipeiW === '多雲'"><img src="../img/scloudy.png" alt></div>
+  <div v-else-if="taipeiW === '雨天'"><img src="../img/rainy.png" alt></div>
+  <div v-else-if="taipeiW === '陰'"><img src="../img/couldy.png" alt></div>
+  <div v-else-if="taipeiW === '晴'"><img src="../img/sunny.png" alt></div>
+  <div v-else>沒圖</div>
+              
             </div>
         </router-link>
         <router-link to="/south" class="area area2">
             <div class="title">南部</div>
             <div class="ur">
               <div class="city">高雄市</div>
-              <div class="temp">29°C</div>
-              <div class="wea">多雲時陰</div>
+              <div class="temp">{{kaohsiungTemp}}°C</div>
+              <div class="wea">{{kaohsiungW}}</div>
             </div>
             <div class="weai">
-              <img src="../img/rainy.png" alt>
+              <div v-if="kaohsiungW === '多雲'"><img src="../img/scloudy.png" alt></div>
+  <div v-else-if="kaohsiungW === '雨天'"><img src="../img/rainy.png" alt></div>
+  <div v-else-if="kaohsiungW === '陰'"><img src="../img/couldy.png" alt></div>
+  <div v-else-if="kaohsiungW === '晴'"><img src="../img/sunny.png" alt></div>
+  <div v-else>沒圖</div>
+              
             </div>
         </router-link>
         <router-link to="/medium" class="area area3">
             <div class="title">中部</div>
             <div class="ur">
               <div class="city">台中市</div>
-              <div class="temp">29°C</div>
-              <div class="wea">多雲時陰</div>
+              <div class="temp">{{taichungTemp}}°C</div>
+              <div class="wea">{{taichungW}}</div>
             </div>
             <div class="weai">
-              <img src="../img/rainy.png" alt>
+              <div v-if="taichungW === '多雲'"><img src="../img/scloudy.png" alt></div>
+  <div v-else-if="taichungW === '雨天'"><img src="../img/rainy.png" alt></div>
+  <div v-else-if="taichungW === '陰'"><img src="../img/couldy.png" alt></div>
+  <div v-else-if="taichungW === '晴'"><img src="../img/sunny.png" alt></div>
+  <div v-else>沒圖</div>
+              
             </div>
         </router-link>
         <router-link to="/east" class="area area4">
             <div class="title">東部</div>
             <div class="ur">
-              <div class="city">花蓮市</div>
-              <div class="temp">29°C</div>
-              <div class="wea">多雲時陰</div>
+              <div class="city">花蓮縣</div>
+              <div class="temp">{{hualienTemp}}°C</div>
+              <div class="wea">{{hualienW}}</div>
             </div>
             <div class="weai">
-              <img src="../img/rainy.png" alt>
+              <div v-if="hualienW === '多雲'"><img src="../img/scloudy.png" alt></div>
+  <div v-else-if="hualienW === '雨天'"><img src="../img/rainy.png" alt></div>
+  <div v-else-if="hualienW === '陰'"><img src="../img/couldy.png" alt></div>
+  <div v-else-if="hualienW === '晴'"><img src="../img/sunny.png" alt></div>
+  <div v-else>沒圖</div>
+              
             </div>
         </router-link>
       </div>
@@ -106,7 +126,8 @@
 </template>
 
 <script>
-import firebase from 'firebase';
+import firebase, { functions } from 'firebase';
+import axios from 'axios';
 export default {
       name: 'content',
   data() {
@@ -114,8 +135,27 @@ export default {
       email: '',
       password: '',
       isall: true,
-      ismyall: false
+      ismyall: false,
+      taipeiWeather:[],
+      taipeiTemp:[],
+      taipeiW:[],
+      taichungWeather:[],
+      taichungTemp:[],
+      taichungW:[],
+      kaohsiungWeather:[],
+      kaohsiungTemp:[],
+      kaohsiungW:[],
+      hualienWeather:[],
+      hualienTemp:[],
+      hualienW:[],
+       hualienIcon:[],
+     
+    
     };
+  },
+  computed:{
+
+
   },
   methods: {
     vif() {
@@ -154,8 +194,28 @@ export default {
                          alert('Oop.' + err.message)
                      }
                 );
+            },
+            myw: function(){
+              alert('登入或註冊查看我的地區 !')
             }
-  }
+  },
+  async created() {
+let taipeiWeather = await axios.get("https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-089?Authorization=CWB-3AFE048E-EC32-4673-99F4-55ED79CF1F70&parameterName=CITY&limit =2&locationName=臺北市");    
+    this.taipeiTemp = taipeiWeather.data.records.locations[0].location[0].weatherElement[3].time[1].elementValue[0].value;
+    this.taipeiW = taipeiWeather.data.records.locations[0].location[0].weatherElement[1].time[1].elementValue[0].value;
+let taichungWeather = await axios.get("https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-089?Authorization=CWB-3AFE048E-EC32-4673-99F4-55ED79CF1F70&parameterName=CITY&limit =2&locationName=臺中市");
+  this.taichungTemp = taichungWeather.data.records.locations[0].location[0].weatherElement[3].time[1].elementValue[0].value;
+  this.taichungW = taichungWeather.data.records.locations[0].location[0].weatherElement[1].time[1].elementValue[0].value;
+  let kaohsiungWeather = await axios.get("https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-089?Authorization=CWB-3AFE048E-EC32-4673-99F4-55ED79CF1F70&parameterName=CITY&limit =2&locationName=高雄市");
+   this.kaohsiungTemp = kaohsiungWeather.data.records.locations[0].location[0].weatherElement[3].time[1].elementValue[0].value;
+   this.kaohsiungW = kaohsiungWeather.data.records.locations[0].location[0].weatherElement[1].time[1].elementValue[0].value;
+  let hualienWeather = await axios.get("https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-089?Authorization=CWB-3AFE048E-EC32-4673-99F4-55ED79CF1F70&parameterName=CITY&limit =2&locationName=花蓮縣");
+   this.hualienTemp = hualienWeather.data.records.locations[0].location[0].weatherElement[3].time[1].elementValue[0].value;
+   this.hualienW = hualienWeather.data.records.locations[0].location[0].weatherElement[1].time[1].elementValue[0].value;
+   
+  },
+  
+  
 };
 </script>
 
@@ -206,6 +266,7 @@ $couldy: linear-gradient();
   padding: 8px;
   width: 150px;
   border-radius: 50px;
+  
 }
 .li1 {
   background-color: #000;
