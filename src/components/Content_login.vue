@@ -52,7 +52,7 @@
         </div>
       </div>
        <div class="forecast" v-if="isall">
-        <router-link to="/north" class="area area1">
+        <router-link to="/north" class="area area1 bg--1">
             <div class="title">北部</div>
             <div class="ur">
               <div class="city">台北市</div>
@@ -69,7 +69,7 @@
               
             </div>
         </router-link>
-        <router-link to="/south" class="area area2">
+        <router-link to="/south" class="area area2 bg--2">
             <div class="title">南部</div>
             <div class="ur">
               <div class="city">高雄市</div>
@@ -86,7 +86,7 @@
               
             </div>
         </router-link>
-        <router-link to="/medium" class="area area3">
+        <router-link to="/medium" class="area area3 bg--3">
             <div class="title">中部</div>
             <div class="ur">
               <div class="city">台中市</div>
@@ -103,7 +103,7 @@
               
             </div>
         </router-link>
-        <router-link to="/east" class="area area4">
+        <router-link to="/east" class="area area4 bg--4">
             <div class="title">東部</div>
             <div class="ur">
               <div class="city">花蓮縣</div>
@@ -194,8 +194,8 @@ let taichungWeather = await axios.get("https://opendata.cwb.gov.tw/api/v1/rest/d
 <style lang="scss" scoped>
 $sunny: -webkit-linear-gradient(#18acc7, #f6a260);
 $normal: linear-gradient( #29a794, #d7b36f);
-$rainy: linear-gradient();
-$couldy: linear-gradient();
+$rainy: linear-gradient(#003858, #f6a260);
+$couldy: linear-gradient(#015F6F,#d7b36f);
 .content {
   top: 50px;
   display: flex;
@@ -306,11 +306,22 @@ a {
   grid-template-columns: 325px 325px;
   grid-gap: 30px;
 }
-
+.bg--1{
+  background: $sunny;
+}
+.bg--2{
+   background: $couldy;
+}
+.bg--3{
+ background: $rainy;
+}
+.bg--4{
+  background:$normal;
+}
 .area {
   background-color: #a5a5a5;
   border-radius: 20px;
-  background: $sunny;
+  
   color: #fff;
   font-weight: normal;
   padding: 25px 40px 25px 45px;

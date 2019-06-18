@@ -5,10 +5,10 @@
         <img src="../img/Clogo.png" class="cl">
       </div>
       <div class="">
-       
-       <input type="text" v-model.trim="email" placeholder="Email"><br>
-        <input type="password" v-model.trim="password" placeholder="Password"><br>
-        
+       <div class="inps">
+       <input class="inp" type="text" v-model.trim="email" placeholder="Email"><br>
+        <input class="inp" type="password" v-model.trim="password" placeholder="Password"><br>
+       </div>
         <div class="text">
         <li class="li1">
           <div @click="login">登入</div>
@@ -56,7 +56,7 @@
         </div>
       </div>
       <div class="forecast" v-if="isall">
-        <router-link to="/north" class="area area1">
+        <router-link to="/north" class="area area3 bg--1">
             <div class="title">北部</div>
             <div class="ur">
               <div class="city">台北市</div>
@@ -73,7 +73,7 @@
               
             </div>
         </router-link>
-        <router-link to="/south" class="area area2">
+        <router-link to="/south" class="area area2 bg--2">
             <div class="title">南部</div>
             <div class="ur">
               <div class="city">高雄市</div>
@@ -90,7 +90,7 @@
               
             </div>
         </router-link>
-        <router-link to="/medium" class="area area3">
+        <router-link to="/medium" class="area area3 bg--3">
             <div class="title">中部</div>
             <div class="ur">
               <div class="city">台中市</div>
@@ -107,7 +107,7 @@
               
             </div>
         </router-link>
-        <router-link to="/east" class="area area4">
+        <router-link to="/east" class="area area4 bg--4">
             <div class="title">東部</div>
             <div class="ur">
               <div class="city">花蓮縣</div>
@@ -132,6 +132,7 @@
 <script>
 import firebase, { functions } from 'firebase';
 import axios from 'axios';
+
 export default {
       name: 'content',
   data() {
@@ -153,15 +154,25 @@ export default {
       hualienTemp:[],
       hualienW:[],
        hualienIcon:[],
+     tpbg: 1,
+
      
+     tcbg: 0,
+     tnbg: 0,
+    hlbg: 0,
     
     };
   },
-  computed:{
 
+  
+  computed:{
+if(taipeiW = '晴'){
+this.tpbg = 2;
+}
 
   },
   methods: {
+    
     vif() {
       this.isall = false;
       this.ismyall = true;
@@ -217,17 +228,19 @@ let taichungWeather = await axios.get("https://opendata.cwb.gov.tw/api/v1/rest/d
    this.hualienTemp = hualienWeather.data.records.locations[0].location[0].weatherElement[3].time[1].elementValue[0].value;
    this.hualienW = hualienWeather.data.records.locations[0].location[0].weatherElement[1].time[1].elementValue[0].value;
    
+
   },
   
-  
+ 
 };
+
 </script>
 
 <style lang="scss" scoped>
 $sunny: -webkit-linear-gradient(#18acc7, #f6a260);
 $normal: linear-gradient( #29a794, #d7b36f);
-$rainy: linear-gradient();
-$couldy: linear-gradient();
+$rainy: linear-gradient(#003858, #f6a260);
+$couldy: linear-gradient(#015F6F,#d7b36f);
 .content {
   top: 50px;
   display: flex;
@@ -261,6 +274,15 @@ $couldy: linear-gradient();
   display: flex;
   padding: 30px;
   text-align: center;
+}
+.inp{
+border-radius: 10px;
+width: 200px;
+height: 30px;
+}
+.inps{
+text-align: center;
+max-width: 400px;
 }
 .li1,
 .li2 {
@@ -316,7 +338,18 @@ $couldy: linear-gradient();
 .my {
   margin-left: 10px;
 }
-
+.bg--1{
+  background: $sunny;
+}
+.bg--2{
+   background: $couldy;
+}
+.bg--3{
+ background: $rainy;
+}
+.bg--4{
+  background:$normal;
+}
 .forecast {
   height: 450px;
   display: grid;
@@ -328,7 +361,7 @@ $couldy: linear-gradient();
 .area {
   background-color: #a5a5a5;
   border-radius: 20px;
-  background: $sunny;
+  
   color: #fff;
   font-weight: normal;
   padding: 25px 40px 25px 45px;
@@ -424,6 +457,17 @@ $couldy: linear-gradient();
     grid-template-columns: 45vw 1fr;
     margin-bottom: 20%;
   }
+  .inp{
+border-radius: 10px;
+width: 200px;
+height: 30px;
+max-width: 150px;
+}
+.inps{
+  top:30px;
+text-align: center;
+max-width: 400px;
+}
   .clogo {
     padding: 0;
     width: 100%;
