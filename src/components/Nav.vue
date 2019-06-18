@@ -7,7 +7,7 @@
         </router-link>
       </div>
       <div class="ni">
-        <input type="search" class="search">
+        <input type="text" placeholder="搜尋" class="search">
       </div>
       <div class="b1">登入</div>
       <div class="b2">註冊</div>
@@ -76,7 +76,9 @@ export default {
   width: 180px;
   height: auto;
 }
-
+input{
+    font-family: 微軟正黑體;
+}
 .search {
   padding-left: 10px;
   outline: 0;

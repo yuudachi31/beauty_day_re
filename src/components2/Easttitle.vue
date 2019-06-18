@@ -1,10 +1,10 @@
 <template>
-<div class="easttitle" name="e">
-    <div class="bt">東部</div>
-    <router-link to="/northtitle" class="title ft">北部</router-link>
-    <router-link to="/m" class="title st">中部</router-link>
-    <div class="title tt">南部</div>
-    <div class="title ft">外島</div>
+<div class="easttitle">
+    <router-link to="/north" div class="bt">北部</router-link>
+    <router-link to="/medium" div class="title ft">中部</router-link>
+    <router-link to="/south" div class="title st">南部</router-link>
+    <router-link to="/east" div class="title tt">東部</router-link>
+    <router-link to="/outer" div class="title ft">外島</router-link>
 </div>
 </template>
 
@@ -20,16 +20,21 @@
     padding-bottom: 20px;
     border-bottom: solid 2px #000; 
 }
+
 .bt{
-    font-size: 35px;
-    top: 3px;
+    top: 15px;
+    font-size: 22px;
 }
 .title{
+    margin-bottom: 25px;
     font-size: 22px;
     height: 20px;
     top: 15px;
     margin-left: 5%;
-
+    &.tt{
+        font-size: 35px;
+        top: 0px;
+    }
 }
 
 </style>

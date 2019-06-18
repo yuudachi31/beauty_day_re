@@ -66,6 +66,7 @@
 
 <style lang="scss" scoped>
 .weekfc {
+    top: 60px;
   font-weight: bold;
   display: grid;
   width: 100%;
