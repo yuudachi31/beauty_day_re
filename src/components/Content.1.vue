@@ -1,6 +1,5 @@
 <template>
   <div class="content">
-     <button @click="cli" >123</button>
     <div class="left">
       <div class="clogo">
         <img src="../img/Clogo.png" class="cl">
@@ -12,7 +11,7 @@
         
         <div class="text">
         <li class="li1">
-          <div @click="login">登入12</div>
+          <div @click="login">登入</div>
         </li>
         <li class="li2">
           <div @click="signUp">註冊</div>
