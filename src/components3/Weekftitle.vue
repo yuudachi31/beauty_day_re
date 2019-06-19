@@ -2,13 +2,13 @@
   <div class="weekftitle">
     <div class="first">
       <div class="city">基隆市</div>
-      <div class="temp">29°C</div>
+      <div class="temp">{{keelungTemp}}</div>
     </div>
     <div class="second">
       <div class="icon">
         <img src="../img/bsunny.png" alt>
       </div>
-      <div class="wea">陽光普照</div>
+      <div class="wea">{{keelungW}}</div>
     </div>
     <div class="third">
       <div class="pl">紫外線</div>
@@ -22,6 +22,36 @@
 </template>
 
 <script>
+import axios from "axios";
+
+export default {
+  name: "content",
+  data() {
+    return {
+      area2: {
+        background: "#000"
+      },
+      email: "",
+      password: "",
+      isall: true,
+      ismyall: false,
+      keelungWeather: [],
+      keelungTemp: [],
+      keelungW: []
+    };
+  },
+
+  computed: {
+  async created() {
+    let keelungWeather = await axios.get(
+      "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-089?Authorization=CWB-3AFE048E-EC32-4673-99F4-55ED79CF1F70&parameterName=CITY&limit =2&locationName=基隆市"
+    );
+    this.keelungTemp =
+     keelungWeather.data.records.locations[0].location[0].weatherElement[3].time[1].elementValue[0].value;
+    this.keelungW =
+      keelungWeather.data.records.locations[0].location[0].weatherElement[1].time[1].elementValue[0].value;
+  }
+}
 </script>
 
 <style lang="scss" scoped>
