@@ -62,6 +62,25 @@
 </template>
 
 <script>
+import firebase, { functions } from 'firebase';
+import axios from 'axios';
+
+export default {
+  name: 'kl',
+  data(){
+    return{
+       klWeather:[],
+      klTemp:[],
+      klW:[],
+    }
+    
+  },
+async created() {
+  let klWeather = await axios.get("https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-089?Authorization=CWB-3AFE048E-EC32-4673-99F4-55ED79CF1F70&parameterName=CITY&limit =2&locationName=基隆市");    
+    this.klTemp = klWeather.data.records.locations[0].location[0].weatherElement[3].time[1].elementValue[0].value;
+    this.klW = klWeather.data.records.locations[0].location[0].weatherElement[1].time[1].elementValue[0].value;
+}
+}
 </script>
 
 <style lang="scss" scoped>
