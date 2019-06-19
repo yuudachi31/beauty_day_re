@@ -6,13 +6,13 @@
         <img src="../img/Clogo.png" class="cl">
       </div>
       <div class="">
-       <div class="inps">
-       <input class="inp" type="text" v-model.trim="email" placeholder="Email"><br>
-        <input class="inp" type="password" v-model.trim="password" placeholder="Password"><br>
-       </div>
+       
+       <input type="text" v-model.trim="email" placeholder="Email"><br>
+        <input type="password" v-model.trim="password" placeholder="Password"><br>
+        
         <div class="text">
         <li class="li1">
-          <div @click="login">登入</div>
+          <div @click="login">登入12</div>
         </li>
         <li class="li2">
           <div @click="signUp">註冊</div>
@@ -23,11 +23,11 @@
     <div class="right">
       <div class="menu">
         <div class="all" @click="test">全區</div>
-        <div class="myall" @click="myw">
+        <div class="myall" @click="vif">
           <div class="start">
             <img src="../img/mystar.png" alt>
           </div>
-          <div  class="my">我的地區</div>
+          <div class="my">我的地區</div>
         </div>
       </div>
       <div class="forecast2" v-if="ismyall">
@@ -57,76 +57,48 @@
         </div>
       </div>
       <div class="forecast" v-if="isall">
-        <router-link to="/north" class="area area3 bg--1">
+        <router-link to="/north" class="area area1">
             <div class="title">北部</div>
             <div class="ur">
               <div class="city">台北市</div>
-              <div class="temp">{{taipeiTemp}}°C</div>
-              <div class="wea">{{taipeiW}}</div>
+              <div class="temp">29°C</div>
+              <div class="wea">多雲時陰</div>
             </div>
             <div class="weai">
-              <div v-if="taipeiW === '多雲'"><img src="../img/scloudy.png" alt></div>
-  <div v-else-if="taipeiW === '雨天'"><img src="../img/rainy.png" alt></div>
-  <div v-else-if="taipeiW === '短暫陣雨'"><img src="../img/rainy.png" alt></div>
-  <div v-else-if="taipeiW === '陰'"><img src="../img/couldy.png" alt></div>
-  <div v-else-if="taipeiW === '晴'"><img src="../img/sunny.png" alt></div>
-  <div v-else>沒圖</div>
-              
+              <img src="../img/rainy.png" alt>
             </div>
         </router-link>
-<<<<<<< Updated upstream
-        <router-link to="/south" class="area area2 bg--2">
-=======
         <router-link to="/south" class="area area2"  v-bind:style="area2">
->>>>>>> Stashed changes
             <div class="title">南部</div>
             <div class="ur">
               <div class="city">高雄市</div>
-              <div class="temp">{{kaohsiungTemp}}°C</div>
-              <div class="wea">{{kaohsiungW}}</div>
+              <div class="temp">29°C</div>
+              <div class="wea">多雲時陰</div>
             </div>
             <div class="weai">
-              <div v-if="kaohsiungW === '多雲'"><img src="../img/scloudy.png" alt></div>
-  <div v-else-if="kaohsiungW === '雨天'"><img src="../img/rainy.png" alt></div>
-  <div v-else-if="kaohsiungW === '短暫陣雨'"><img src="../img/rainy.png" alt></div>
-  <div v-else-if="kaohsiungW === '陰'"><img src="../img/couldy.png" alt></div>
-  <div v-else-if="kaohsiungW === '晴'"><img src="../img/sunny.png" alt></div>
-  <div v-else>沒圖</div>
-              
+              <img src="../img/rainy.png" alt>
             </div>
         </router-link>
-        <router-link to="/medium" class="area area3 bg--3">
+        <router-link to="/medium" class="area area3">
             <div class="title">中部</div>
             <div class="ur">
               <div class="city">台中市</div>
-              <div class="temp">{{taichungTemp}}°C</div>
-              <div class="wea">{{taichungW}}</div>
+              <div class="temp">29°C</div>
+              <div class="wea">多雲時陰</div>
             </div>
             <div class="weai">
-              <div v-if="taichungW === '多雲'"><img src="../img/scloudy.png" alt></div>
-  <div v-else-if="taichungW === '雨天'"><img src="../img/rainy.png" alt></div>
-   <div v-else-if="taichungW === '短暫陣雨'"><img src="../img/rainy.png" alt></div>
-  <div v-else-if="taichungW === '陰'"><img src="../img/couldy.png" alt></div>
-  <div v-else-if="taichungW === '晴'"><img src="../img/sunny.png" alt></div>
-  <div v-else>沒圖</div>
-              
+              <img src="../img/rainy.png" alt>
             </div>
         </router-link>
-        <router-link to="/east" class="area area4 bg--4">
+        <router-link to="/east" class="area area4">
             <div class="title">東部</div>
             <div class="ur">
-              <div class="city">花蓮縣</div>
-              <div class="temp">{{hualienTemp}}°C</div>
-              <div class="wea">{{hualienW}}</div>
+              <div class="city">花蓮市</div>
+              <div class="temp">29°C</div>
+              <div class="wea">多雲時陰</div>
             </div>
             <div class="weai">
-              <div v-if="hualienW === '多雲'"><img src="../img/scloudy.png" alt></div>
-  <div v-else-if="hualienW === '雨天'"><img src="../img/rainy.png" alt></div>
-  <div v-else-if="hualienW === '短暫陣雨'"><img src="../img/rainy.png" alt></div>
-  <div v-else-if="hualienW === '陰'"><img src="../img/couldy.png" alt></div>
-  <div v-else-if="hualienW === '晴'"><img src="../img/sunny.png" alt></div>
-  <div v-else>沒圖</div>
-              
+              <img src="../img/rainy.png" alt>
             </div>
         </router-link>
       </div>
@@ -135,9 +107,7 @@
 </template>
 
 <script>
-import firebase, { functions } from 'firebase';
-import axios from 'axios';
-
+import firebase from 'firebase';
 export default {
       name: 'content',
   data() {
@@ -149,44 +119,10 @@ export default {
       password: '',
       isall: true,
       ismyall: false,
-<<<<<<< Updated upstream
-      taipeiWeather:[],
-      taipeiTemp:[],
-      taipeiW:[],
-      taichungWeather:[],
-      taichungTemp:[],
-      taichungW:[],
-      kaohsiungWeather:[],
-      kaohsiungTemp:[],
-      kaohsiungW:[],
-      hualienWeather:[],
-      hualienTemp:[],
-      hualienW:[],
-       hualienIcon:[],
-     tpbg: 1,
-
-     
-     tcbg: 0,
-     tnbg: 0,
-    hlbg: 0,
-    
-=======
       flag:0
->>>>>>> Stashed changes
     };
   },
-
-  
-  computed:{
-if(taipeiW = '晴'){
-this.tpbg = 2;
-}
-
-  },
   methods: {
-<<<<<<< Updated upstream
-    
-=======
     cli(){
       if(this.flag === 0){
         this.area2.background = "red"
@@ -198,7 +134,6 @@ this.tpbg = 2;
       }
       console.log(this.flag)
     },
->>>>>>> Stashed changes
     vif() {
       this.isall = false;
       this.ismyall = true;
@@ -235,38 +170,16 @@ this.tpbg = 2;
                          alert('Oop.' + err.message)
                      }
                 );
-            },
-            myw: function(){
-              alert('登入或註冊查看我的地區 !')
             }
-  },
-  async created() {
-let taipeiWeather = await axios.get("https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-089?Authorization=CWB-3AFE048E-EC32-4673-99F4-55ED79CF1F70&parameterName=CITY&limit =2&locationName=臺北市");    
-    this.taipeiTemp = taipeiWeather.data.records.locations[0].location[0].weatherElement[3].time[1].elementValue[0].value;
-    this.taipeiW = taipeiWeather.data.records.locations[0].location[0].weatherElement[1].time[1].elementValue[0].value;
-let taichungWeather = await axios.get("https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-089?Authorization=CWB-3AFE048E-EC32-4673-99F4-55ED79CF1F70&parameterName=CITY&limit =2&locationName=臺中市");
-  this.taichungTemp = taichungWeather.data.records.locations[0].location[0].weatherElement[3].time[1].elementValue[0].value;
-  this.taichungW = taichungWeather.data.records.locations[0].location[0].weatherElement[1].time[1].elementValue[0].value;
-  let kaohsiungWeather = await axios.get("https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-089?Authorization=CWB-3AFE048E-EC32-4673-99F4-55ED79CF1F70&parameterName=CITY&limit =2&locationName=高雄市");
-   this.kaohsiungTemp = kaohsiungWeather.data.records.locations[0].location[0].weatherElement[3].time[1].elementValue[0].value;
-   this.kaohsiungW = kaohsiungWeather.data.records.locations[0].location[0].weatherElement[1].time[1].elementValue[0].value;
-  let hualienWeather = await axios.get("https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-089?Authorization=CWB-3AFE048E-EC32-4673-99F4-55ED79CF1F70&parameterName=CITY&limit =2&locationName=花蓮縣");
-   this.hualienTemp = hualienWeather.data.records.locations[0].location[0].weatherElement[3].time[1].elementValue[0].value;
-   this.hualienW = hualienWeather.data.records.locations[0].location[0].weatherElement[1].time[1].elementValue[0].value;
-   
-
-  },
-  
- 
+  }
 };
-
 </script>
 
 <style lang="scss" scoped>
 $sunny: -webkit-linear-gradient(#18acc7, #f6a260);
 $normal: linear-gradient( #29a794, #d7b36f);
-$rainy: linear-gradient(#003858, #f6a260);
-$couldy: linear-gradient(#015F6F,#d7b36f);
+$rainy: linear-gradient();
+$couldy: linear-gradient();
 .content {
   top: 50px;
   display: flex;
@@ -301,15 +214,6 @@ $couldy: linear-gradient(#015F6F,#d7b36f);
   padding: 30px;
   text-align: center;
 }
-.inp{
-border-radius: 10px;
-width: 200px;
-height: 30px;
-}
-.inps{
-text-align: center;
-max-width: 400px;
-}
 .li1,
 .li2 {
   font-size: 28px;
@@ -318,7 +222,6 @@ max-width: 400px;
   padding: 8px;
   width: 150px;
   border-radius: 50px;
-  cursor: pointer;
 }
 .li1 {
   background-color: #000;
@@ -356,7 +259,6 @@ max-width: 400px;
 .myall {
   display: flex;
   width: auto;
-   cursor: pointer;
 }
 .start {
   width: 30px;
@@ -364,18 +266,7 @@ max-width: 400px;
 .my {
   margin-left: 10px;
 }
-.bg--1{
-  background: $sunny;
-}
-.bg--2{
-   background: $couldy;
-}
-.bg--3{
- background: $rainy;
-}
-.bg--4{
-  background:$normal;
-}
+
 .forecast {
   height: 450px;
   display: grid;
@@ -387,7 +278,7 @@ max-width: 400px;
 .area {
   background-color: #a5a5a5;
   border-radius: 20px;
-  
+  background: $sunny;
   color: #fff;
   font-weight: normal;
   padding: 25px 40px 25px 45px;
@@ -483,17 +374,6 @@ max-width: 400px;
     grid-template-columns: 45vw 1fr;
     margin-bottom: 20%;
   }
-  .inp{
-border-radius: 10px;
-width: 200px;
-height: 30px;
-max-width: 150px;
-}
-.inps{
-  top:30px;
-text-align: center;
-max-width: 400px;
-}
   .clogo {
     padding: 0;
     width: 100%;
